@@ -85,5 +85,8 @@ textarea .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #ffffff85;
 }
 
+.noCardAdd {
+  font-size: 24px;
+}
 
 
