@@ -23,10 +23,14 @@ const formUrlRef = document.querySelector('#formtUrl')
 // CAPTURA DIV DESCRICAO
 const formCadastrarRef = document.querySelector('#formDescricao')
 
+//CAPTURA LINK ASSISTIR
+const linkUrlRef = document.querySelector('#linkUrl')
+
 // CAPTURA DOS ALERTAS DE PREENCHIMENTO INCORRETO
 const validTituloRef = document.querySelector('#validTitulo')
 const erroValidacaoRef = document.querySelector('#erroValidacao')
 const validURLRef = document.querySelector('#validURL')
+const validLinkRef = document.querySelector('#validLink')
 
 const cardsRef = document.querySelector('#cards')
 
@@ -61,6 +65,20 @@ function validacaoUrl() {
 
 imputUrlRef.addEventListener('blur', validacaoUrl)
 
+
+function validacaoLink() {
+    
+    if (linkUrlRef.value.length < 1) {
+        linkUrlRef.classList.add('bg-danger');
+        validLinkRef.style.display = "block"
+    } else if (linkUrlRef.value.length >= 1) {
+        linkUrlRef.classList.remove('bg-danger');
+        validLinkRef.style.display = "none";
+    }
+}
+
+linkUrlRef.addEventListener('blur', validacaoLink)
+
 // Validação Descrição
 function validacaoDescricao() {
 
@@ -79,6 +97,7 @@ imputDescricaoRef.addEventListener('blur', validacaoDescricao)
 function habilitaCadastro() {
     if (imputTituloRef.value.length >= 4 &&
         imputUrlRef.value.length >= 1 &&
+        linkUrlRef.value.length >= 1 &&
         imputDescricaoRef.value.length >= 4) {
         
             btnCadastrarRef.removeAttribute('disabled')
@@ -89,7 +108,7 @@ function habilitaCadastro() {
     imputTituloRef.addEventListener('keyup', habilitaCadastro);
     imputUrlRef.addEventListener('keyup', habilitaCadastro);
     imputDescricaoRef.addEventListener('keyup', habilitaCadastro);
-
+    linkUrlRef.addEventListener('keyup', habilitaCadastro);
     imputDescricaoRef.addEventListener('blur', validacaoDescricao)
 
 // Habilitar aviso caso hava formulario vazio
@@ -123,6 +142,7 @@ var valorDescricao = imputDescricaoRef.value
           <div class="card-body bg-dark">
             <h5 class="card-title">${valorTitulo}</h5>
             <p class="card-text">${valorDescricao}</p>
+            <a href="#" class="btn btn-primary">Assistir</a>
           </div>
         </div>
       </div>

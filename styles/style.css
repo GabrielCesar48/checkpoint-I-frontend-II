@@ -80,6 +80,10 @@ textarea .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   display: none;
 }
 
+#validLink {
+  display: none;
+}
+
 
 .noCardAdd {
   color: #ffffff85;
