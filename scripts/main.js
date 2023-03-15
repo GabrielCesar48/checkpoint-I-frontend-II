@@ -134,15 +134,18 @@ placeholderCardRef.style.display = 'none'
 var valorTitulo = imputTituloRef.value.toUpperCase();
 var valorUrl = imputUrlRef.value
 var valorDescricao = imputDescricaoRef.value
+var valorLink = linkUrlRef.value
 
     var card = `
-    <div class="col mb-3 d-flex justify-content-center px-4">
+    <div class="col mb-3 d-flex justify-content-center mx-4">
         <div class="card border-0">
           <img src="${valorUrl}" class="card-img-top" alt="...">
           <div class="card-body bg-dark">
             <h5 class="card-title">${valorTitulo}</h5>
             <p class="card-text">${valorDescricao}</p>
-            <a href="#" class="btn btn-primary">Assistir</a>
+            <div class="d-flex justify-content-end">
+            <a href="${valorLink}" class="btn btn-outline-info">Assistir</a>
+            </div>
           </div>
         </div>
       </div>
@@ -153,6 +156,7 @@ var valorDescricao = imputDescricaoRef.value
     imputTituloRef.value = ''
     imputUrlRef.value = ''
     imputDescricaoRef.value = ''
+    linkUrlRef.value = ''
 
     btnCadastrarRef.setAttribute('disabled', 'disabled')
     
